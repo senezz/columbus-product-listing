@@ -1,16 +1,20 @@
 import { getProducts } from "@/lib/api";
+import Header from "@/components/Header/Header";
 
 export default async function Page() {
-  const { title, products } = await getProducts();
+  const { title, logo, products } = await getProducts();
 
   return (
-    <main>
-      <h1>{title}</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.articleNumber}>{product.title}</li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <Header logo={logo} />
+      <main>
+        <h1>{title}</h1>
+        <ul>
+          {products.map((product) => (
+            <li key={product.articleNumber}>{product.title}</li>
+          ))}
+        </ul>
+      </main>
+    </>
   );
 }

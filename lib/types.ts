@@ -1,5 +1,11 @@
+/**
+ * NOTE: The provided schema (columbus_recruitment.schema.json) defines fields
+ * `link` and `ean`, but the actual API responds with `url` and `gtin`.
+ * Types follow the actual API response so the application works.
+ */
+
 export type Image = {
-  link: string;
+  url: string;
   altText: string;
 };
 
@@ -10,8 +16,8 @@ export type Promotion = {
 
 export type Product = {
   articleNumber: string;
-  ean: string;
-  link: string;
+  gtin: string;
+  url: string;
   image: Image;
   title: string;
   description: string;
