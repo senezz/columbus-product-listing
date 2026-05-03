@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Prerequisites
 
-## Getting Started
+- Node.js 18+ (recommended 20+)
+- npm
 
-First, run the development server:
+### Installation
 
-```bash
+\`\`\`bash
+npm install
+\`\`\`
+
+### Environment Setup
+
+Create a \`.env.local\` file in the project root:
+
+\`\`\`
+COLUMBUS_API_URL=https://1jbod7rtr5.execute-api.eu-central-1.amazonaws.com/prod/exercise
+COLUMBUS_API_KEY=your_api_key_here
+\`\`\`
+
+See \`.env.example\` for the template.
+
+### Running
+
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+\`\`\`
+app/
+layout.tsx # Root layout with CartProvider
+page.tsx # Home page (Server Component, fetches data)
+loading.tsx # Skeleton during data fetch
+error.tsx # Error boundary with retry
+globals.css # Reset and global styles
 
-## Learn More
+components/
+Header/ # Logo + cart icon with badge
+ProductCard/ # Single product display
+ProductList/ # Grid layout for products
+Price/ # Price with optional discount
 
-To learn more about Next.js, take a look at the following resources:
+context/
+CartContext.tsx # Cart state via Context + useReducer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/
+api.ts # Server-side API client
+cart.ts # Fake add-to-cart request
+format.ts # Currency formatting and discount math
+types.ts # TypeScript types from API schema
+\`\`\`
