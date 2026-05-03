@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import NextImage from "next/image";
 import { Product } from "@/lib/types";
 import Price from "@/components/Price/Price";
+import { useCart } from "@/context/CartContext";
+import { fakeAddToCart } from "@/lib/cart";
 import styles from "./ProductCard.module.css";
 
 type Props = {
@@ -9,6 +14,19 @@ type Props = {
 };
 
 export default function ProductCard({ product, priority = false }: Props) {
+  const [isAdding, setIsAdding] = useState(false);
+  const { addItem } = useCart();
+
+  const handleAddToCart = async () => {
+    setIsAdding(true);
+    try {
+      await fakeAddToCart(product);
+      addItem(product);
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -33,6 +51,14 @@ export default function ProductCard({ product, priority = false }: Props) {
         <h2 className={styles.title}>{product.title}</h2>
         <p className={styles.description}>{product.description}</p>
         <Price price={product.price} promotion={product.promotion} />
+        <button
+          type="button"
+          className={styles.addButton}
+          onClick={handleAddToCart}
+          disabled={isAdding}
+        >
+          {isAdding ? "Adding..." : "Add to cart"}
+        </button>
       </div>
     </article>
   );

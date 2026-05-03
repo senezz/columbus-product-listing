@@ -8,6 +8,7 @@
 }
 
 .cartButton {
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
@@ -15,4 +16,22 @@
   color: #333;
   display: flex;
   align-items: center;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #d32f2f;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }

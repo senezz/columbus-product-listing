@@ -50,3 +50,25 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.addButton {
+  margin-top: auto;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.addButton:hover:not(:disabled) {
+  background: #333;
+}
+
+.addButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
