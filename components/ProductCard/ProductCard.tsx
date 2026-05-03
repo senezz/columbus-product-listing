@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import NextImage from "next/image";
+import SafeImage from "@/components/SafeImage/SafeImage";
 import { Product } from "@/lib/types";
 import Price from "@/components/Price/Price";
 import { useCart } from "@/context/CartContext";
@@ -30,7 +30,7 @@ export default function ProductCard({ product, priority = false }: Props) {
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
-        <NextImage
+        <SafeImage
           src={product.image.url}
           alt={product.image.altText}
           fill
@@ -41,7 +41,7 @@ export default function ProductCard({ product, priority = false }: Props) {
       </div>
       <div className={styles.body}>
         <div className={styles.brand}>
-          <NextImage
+          <SafeImage
             src={product.brandLogo}
             alt={product.brandName}
             width={80}

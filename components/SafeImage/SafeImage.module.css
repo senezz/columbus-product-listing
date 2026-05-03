@@ -1,0 +1,21 @@
+.fallbackFill {
+  position: absolute;
+  inset: 0;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallbackFixed {
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  color: #999;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
