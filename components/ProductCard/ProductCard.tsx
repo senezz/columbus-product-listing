@@ -1,5 +1,6 @@
 import NextImage from "next/image";
 import { Product } from "@/lib/types";
+import Price from "@/components/Price/Price";
 import styles from "./ProductCard.module.css";
 
 type Props = {
@@ -31,7 +32,7 @@ export default function ProductCard({ product, priority = false }: Props) {
         </div>
         <h2 className={styles.title}>{product.title}</h2>
         <p className={styles.description}>{product.description}</p>
-        <p className={styles.price}>{product.price}</p>
+        <Price price={product.price} promotion={product.promotion} />
       </div>
     </article>
   );

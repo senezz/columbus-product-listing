@@ -50,11 +50,3 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-.price {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0;
-  margin-top: auto;
-}
