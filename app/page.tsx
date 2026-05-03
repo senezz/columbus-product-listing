@@ -1,5 +1,6 @@
 import { getProducts } from "@/lib/api";
 import Header from "@/components/Header/Header";
+import ProductList from "@/components/ProductList/ProductList";
 
 export default async function Page() {
   const { title, logo, products } = await getProducts();
@@ -9,11 +10,7 @@ export default async function Page() {
       <Header logo={logo} />
       <main>
         <h1>{title}</h1>
-        <ul>
-          {products.map((product) => (
-            <li key={product.articleNumber}>{product.title}</li>
-          ))}
-        </ul>
+        <ProductList products={products} />
       </main>
     </>
   );
