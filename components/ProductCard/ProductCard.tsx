@@ -34,7 +34,7 @@ export default function ProductCard({ product, priority = false }: Props) {
           src={product.image.url}
           alt={product.image.altText}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className={styles.image}
           priority={priority}
         />

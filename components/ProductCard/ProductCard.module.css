@@ -18,7 +18,7 @@
 }
 
 .body {
-  padding: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -29,7 +29,7 @@
 }
 
 .title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0;
@@ -71,4 +71,13 @@
 .addButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .body {
+    padding: 16px;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
 }
